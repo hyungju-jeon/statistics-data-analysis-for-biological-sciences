@@ -1,0 +1,124 @@
+\documentclass[a4paper,11pt]{exam}
+
+\usepackage[T1]{fontenc}
+\usepackage[top=2cm, bottom=2cm, left=3cm, right=3cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{bm} % bold greek
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{forloop}
+\usepackage{amsbsy}
+%\usepackage[framed,numbered]{matlab-prettifier}
+%\usepackage{filecontents}
+\usepackage[numbers,sort&compress,comma]{natbib}
+
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.mps,.eps,.ps}
+\graphicspath{{figs/}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\newcommand*{\clapp}[1]{\hbox to 0pt{\hss#1\hss}}
+\newcommand*{\mat}[1]{\boldsymbol{\mathrm{#1}}}
+\newcommand*{\subdims}[3]{\clapp{\raisebox{#1}[0pt][0pt]{$\scriptstyle(#2 \times #3)$}}}
+\fboxrule=1pt
+
+\newcommand{\defvec}[1]{\expandafter\newcommand\csname v#1\endcsname{{\mathbf{#1}}}}
+\newcommand{\defrv}[1]{\expandafter\newcommand\csname rv#1\endcsname{{\mathbf{#1}}}}
+\newcounter{ct}
+\forLoop{1}{26}{ct}{
+    \edef\letter{\alph{ct}}
+    \expandafter\defvec\letter
+}
+% distinguish random vector
+\forLoop{1}{26}{ct}{
+    \edef\letter{\Alph{ct}}
+    \expandafter\defrv\letter
+}
+\forLoop{1}{26}{ct}{
+    \edef\letter{\alph{ct}}
+    \expandafter\defrv\letter
+}
+\newcommand{\fundamentalSolution}{\boldsymbol{\Phi}}
+\newcommand{\tvv}[1]{\mathbf{\tilde{#1}}} % tilde vectors
+\newcommand{\hvv}[1]{\mathbf{\hat{#1}}} % hat vectors
+
+\newcommand{\braket}[2]{\ensuremath{\langle#1\mid#2\rangle}}
+\newcommand{\bra}[1]{\ensuremath{\langle#1|}}
+\newcommand{\ket}[1]{\ensuremath{|#1\rangle}}
+\newcommand{\horzbar}{\rule[.5ex]{1.5em}{0.4pt}}
+
+\newcommand{\inv}{^{-1}}
+\newcommand{\trp}{{^\top}} % transpose
+\newcommand{\ctrp}{{^\dagger}} % transpose
+\newcommand{\tp}[1]{\ensuremath{{#1}^\top}} % transpose
+\newcommand{\dm}[1]{\ensuremath{\mathrm{d}{#1}}} % dx dy dz dmu
+\newcommand{\RN}[2]{\frac{\dm{#1}}{\dm{#2}}} % (Radon-Nikodym) derivative
+\newcommand{\PD}[2]{\frac{\partial #1}{\partial #2}} % partial derivative
+\newcommand{\norm}[1]{\ensuremath{\Vert{#1}\Vert}}
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\field}[1]{\ensuremath{\mathbb{#1}}}
+\newcommand{\Kfield}{\field{K}}
+\newcommand{\reals}{\field{R}}
+\newcommand{\complex}{\field{C}}
+\newcommand{\integers}{\field{Z}}
+\newcommand{\naturalNumbers}{\field{N}}
+
+\DeclareMathOperator*{\E}{\mathbb{E}} % expectation
+\DeclareMathOperator*{\var}{var}
+\DeclareMathOperator*{\cov}{cov}
+\DeclareMathOperator*{\diag}{diag}
+\newcommand{\system}[2]{\mathcal{#1}\left[ #2 \right]}
+\DeclareMathOperator*{\tr}{tr} % trace
+\newcommand{\indicator}[1]{\mathbf{1}_{#1}} % indicator function
+\newcommand{\onehalf}{\frac{1}{2}}
+
+\newcommand{\iid}{{\it i.i.d.}\xspace}
+\newcommand{\iidsample}{\stackrel{iid}{\sim}}
+\newcommand{\normalDist}{\mathcal{N}}
+\newcounter{homework}
+\newcommand{\homework}{\stepcounter{homework}\textcolor{violet}{\textbf{Homework \thehomework:}~}}
+\newcommand{\funfact}{\textbf{Fun Fact:}~}
+
+\pagestyle{headandfoot}
+\runningheadrule
+\runningheader{INDP 2023}{Statistics and Data Analysis for Biological Sciences}{Il Memming Park}
+
+\title{Day 1 - The goat is more likely to be behind the other door}
+\author{Il Memming Park, Hyungju Jeon}
+
+\begin{document}
+\maketitle
+\section{Motivation}
+\begin{tcolorbox}[colback=black!1!,title=Learning Objective 1]
+   Apply basic rules of probability. Determine when random variables are independent or dependent. Interpret distribution plots.
+\end{tcolorbox}
+\subsection{Conditional probability}
+\begin{questions}
+    \question Suppose you have a dataset from a flow cytometry test for diagnosing a bacterial infection in a clinical setting. 
+    The test is designed to identify the presence of the bacterial pathogen "Bacillus bacterium X" in patient blood samples. The dataset includes 1000 test results.
+        True Positives (correctly identified infected patients): 450
+        True Negatives (correctly identified healthy patients): 475
+        False Positives (healthy patients incorrectly identified as infected): 20
+        False Negatives (infected patients incorrectly identified as healthy): 55
+
+    Calculate the following metrics based on the dataset:
+
+    \begin{parts}
+        \part What is the probability that a randomly selected patient has the bacterial infection?
+        \part What is the probability that a randomly selected patient has the bacterial infection given that the test result is positive?
+        \part What is the probability that a randomly selected patient has the bacterial infection given that the test result is negative?
+        \part What is the probability that a randomly selected patient has the bacterial infection given that the test result is positive?
+        \part What is the probability that a randomly selected patient has the bacterial infection given that the test result is negative?
+    \end{parts}
+
+
+    
+\vspace{\stretch{0.3}}
+\newpage
+\end{questions}
+\end{document}
