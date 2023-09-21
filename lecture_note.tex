@@ -93,27 +93,25 @@
 
 \begin{document}
 \maketitle
-\section{Motivation}
 \begin{tcolorbox}[colback=black!1!,title=Learning Objective 1]
    Apply basic rules of probability. Determine when random variables are independent or dependent. Interpret distribution plots.
 \end{tcolorbox}
-\subsection{Conditional probability}
+\subsection{False positive}
+Suppose you have a dataset from a flow cytometry test for diagnosing a bacterial infection in a clinical setting. 
+Typical problems in flow cytometry include unspecific binding and specific cross-reactivity with off targets (resulting in false positives) as well as lack of reactivity with the stated target antigen (resulting in false negatives). 
+
+The test is designed to identify the presence of the bacterial pathogen "Bacillus bacterium X" in patient blood samples. The dataset includes 1000 test results.
+True Positives (correctly identified infected patients): 450
+True Negatives (correctly identified healthy patients): 475
+False Positives (healthy patients incorrectly identified as infected): 20
+False Negatives (infected patients incorrectly identified as healthy): 55
 \begin{questions}
-    \question Suppose you have a dataset from a flow cytometry test for diagnosing a bacterial infection in a clinical setting. 
-    The test is designed to identify the presence of the bacterial pathogen "Bacillus bacterium X" in patient blood samples. The dataset includes 1000 test results.
-        True Positives (correctly identified infected patients): 450
-        True Negatives (correctly identified healthy patients): 475
-        False Positives (healthy patients incorrectly identified as infected): 20
-        False Negatives (infected patients incorrectly identified as healthy): 55
+    \question 
 
     Calculate the following metrics based on the dataset:
 
     \begin{parts}
         \part What is the probability that a randomly selected patient has the bacterial infection?
-        \part What is the probability that a randomly selected patient has the bacterial infection given that the test result is positive?
-        \part What is the probability that a randomly selected patient has the bacterial infection given that the test result is negative?
-        \part What is the probability that a randomly selected patient has the bacterial infection given that the test result is positive?
-        \part What is the probability that a randomly selected patient has the bacterial infection given that the test result is negative?
     \end{parts}
 
 

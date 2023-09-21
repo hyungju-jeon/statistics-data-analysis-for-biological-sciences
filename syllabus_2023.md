@@ -13,7 +13,9 @@
 
 ## Course description
 
-This course is an introduction to probability and data analysis emphasizing the nature of science, statistical literacy, thinking, and reasoning. While focused on statistical concepts such as probability and distributions, examples and applications are based on competencies relevant to biological data and interpretations in light of biological models. The course applies active learning, with both lectures and recitation periods built around student engagement and hands-on activities. These include, but are not limited to, discussing the primary literature and plotting, analyzing, and interpreting published and simulated data.
+This course is an introduction to probability and data analysis emphasizing the nature of science, statistical literacy, thinking, and reasoning. While focused on statistical concepts such as probability and distributions, examples and applications are based on competencies relevant to biological data and interpretations in light of biological models. 
+
+The course applies active learning, with both lectures and recitation periods built around student engagement and hands-on activities. These include, but are not limited to, discussing the primary literature and plotting, analyzing, and interpreting published and simulated data.
 
 ## Pre-requisite: Calculus
 
