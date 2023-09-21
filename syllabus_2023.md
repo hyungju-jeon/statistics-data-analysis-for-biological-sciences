@@ -2,33 +2,34 @@
 
 ## Class times and locations
 
-- 2023/10/9 (Mon) – 10/13 (Fri), 9:30–12:00, 14:00–16:00 classroom
+|           | Oct 9 (Mon)  | Oct 10 (Tue) | Oct 11 (Wed) | Oct 12 (Thu) | Oct 13 (Fri) |
+| --------- | ------------ | ------------ | ------------ | ------------ | ------------ |
+|  |       classroom       |       classroom       |    classroom          |    classroom          |       classroom       |
+| AM        | 9:30–12:00  | 9:30–12:00  | 9:30–12:00  | 9:00–11:00  | 9:30–12:00  |
+| PM        | 14:00–16:00 | 14:00–16:00 | 14:00–16:00 | 15:30–17:00 | 14:00–16:00 |
+
 
 ## Instructors and Teaching Assistants
-
 - Memming Park, Principal Investigator
   memming.park@research.fchampalimaud.org
 - Hyungju Jeon, PhD student
   hyungju.jeon@research.fchampalimaud.org
 
 ## Course description
-
 This course is an introduction to probability and data analysis emphasizing the nature of science, statistical literacy, thinking, and reasoning. While focused on statistical concepts such as probability and distributions, examples and applications are based on competencies relevant to biological data and interpretations in light of biological models. 
 
 The course applies active learning, with both lectures and recitation periods built around student engagement and hands-on activities. These include, but are not limited to, discussing the primary literature and plotting, analyzing, and interpreting published and simulated data.
 
 ## Pre-requisite: Calculus
-
-## Learning objectives:
-
-- Be able to reason with probabilistic statements;
+## Learning objectives: 
+Be able to...
+- reason with probabilistic statements;
 - develop, formulate, execute, and interpret statistical tests of biological hypotheses using quantitative data;
 - determine when to use null hypothesis tests and how to report effect sizes;
 - analyze, and interpret biological data to communicate with others; and
 - evaluate and critique statistical results in the scientific literature and its derivatives as a reader or a reviewer.
 
 ## Assessment
-
 - Pre-lecture assessment quiz
 - Homework
 - Post-lecture assessment exam
@@ -36,16 +37,16 @@ The course applies active learning, with both lectures and recitation periods bu
 ## Outline
 
 ### Day 1 (Oct 9) – The goat is more likely to be behind the other door.
-
-Learning objectives: 
-
+#### Learning objectives: 
 - Apply basic rules of probability.
 - Determine when random variables are independent or dependent.
 - Interpret distribution plots.
+#### Readings:
+- https://www.tutorialspoint.com/google_colab/google_colab_quick_guide.htm
 
 ### Day 2 (Oct 10) – The ubiquitous bell-shaped curve.
 
-Learning objectives: 
+#### Learning objectives: 
 
 - Judge a distribution by its standard deviation or variance.
 - Know what information is lost with summary statistics.
@@ -54,25 +55,25 @@ Learning objectives:
 
 ### Day 3 (Oct 11) – Many kinds of error bars for we don’t have enough data.
 
-Learning objectives: 
+#### Learning objectives: 
 
 - Illustrate the sampling distribution for any statistic.
 - Recognize and correct for sampling error.
 - Select standard deviation, standard error, or confidence interval to present.
 
-Reading: 
+#### Reading: 
 
 - Maddox, J., Randi, J., & Stewart, W. W. (1988, July 1). “High-dilution” experiments a delusion. Nature Publishing Group UK. https://doi.org/10.1038/334287a0
 
 ### Day 4 (Oct 12) – That’s not what I expected! Are you confident it’s not a fluke?
 
-Learning objectives: 
+#### Learning objectives: 
 
 - Identify the null hypothesis from scientific literature.
 - Illustrate p-values and power of a null hypothesis test.
 - Design a data collection experiment with sufficient power.
 
-Reading: 
+#### Reading: 
 
 - Wasserman Ch 10.
 
