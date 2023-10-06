@@ -10,6 +10,8 @@
 \usepackage{xcolor}
 \usepackage{forloop}
 \usepackage{amsbsy}
+\usepackage{tikz}
+\usetikzlibrary{trees,arrows}
 %\usepackage[framed,numbered]{matlab-prettifier}
 %\usepackage{filecontents}
 \usepackage[numbers,sort&compress,comma]{natbib}
@@ -31,17 +33,17 @@
 \newcommand{\defrv}[1]{\expandafter\newcommand\csname rv#1\endcsname{{\mathbf{#1}}}}
 \newcounter{ct}
 \forLoop{1}{26}{ct}{
-    \edef\letter{\alph{ct}}
-    \expandafter\defvec\letter
+	\edef\letter{\alph{ct}}
+	\expandafter\defvec\letter
 }
 % distinguish random vector
 \forLoop{1}{26}{ct}{
-    \edef\letter{\Alph{ct}}
-    \expandafter\defrv\letter
+	\edef\letter{\Alph{ct}}
+	\expandafter\defrv\letter
 }
 \forLoop{1}{26}{ct}{
-    \edef\letter{\alph{ct}}
-    \expandafter\defrv\letter
+	\edef\letter{\alph{ct}}
+	\expandafter\defrv\letter
 }
 \newcommand{\fundamentalSolution}{\boldsymbol{\Phi}}
 \newcommand{\tvv}[1]{\mathbf{\tilde{#1}}} % tilde vectors
@@ -90,67 +92,95 @@
 \runningheadrule
 \runningheader{INDP 2023}{Statistics and Data Analysis for Biological Sciences}{Il Memming Park}
 
-\title{Day 1 - The goat is more likely to be behind the other door}
+\title{Day 2 - The ubiquitous bell-shaped curve}
 \author{Il Memming Park, Hyungju Jeon}
 
 \begin{document}
 \maketitle
-\begin{tcolorbox}[colback=black!1!,title=Learning Objective 1]
-   Apply basic rules of probability. Determine when random variables are independent or dependent. Interpret distribution plots.
+\begin{tcolorbox}[colback=black!1!,title=Learning Objective 2]
+	Judge a distribution by its standard deviation or variance. Know what information is lost with summary statistics. Apply central limit theorem in the context of experiments. Scientifically interpret linear regression results.
 \end{tcolorbox}
+\section{Discrete Probability Distribution}
+\subsection{Binomial Distribution}
 
-\subsection{Conditional Probability}
-
-\myparagraph{The problem of false positives} No diagnostic test is perfect in the real world. 
-For example, in a flow cytometry test, we may have issues with unspecific binding and specific cross-reactivity with off targets resulting in false positives, as well as lack of reactivity with the stated target antigen resulting in false negatives. Mathematically, these can be described using \textbf{sensitivity} and \textbf{specificity}. 
+\myparagraph{The problem of false positives} No diagnostic test is perfect in the real world.
+For example, in a flow cytometry test, we may have issues with unspecific binding and specific cross-reactivity with off targets resulting in false positives, as well as lack of reactivity with the stated target antigen resulting in false negatives. Mathematically, these can be described using \textbf{sensitivity} and \textbf{specificity}.
 \begin{itemize}
-    \item Sensitivity is the probability of a positive test result, conditioned on the individual truly being positive.
-    \item Specificity is the probability of a negative test result, conditioned on the individual truly being negative.
+	\item Sensitivity is the probability of a positive test result, conditioned on the individual truly being positive.
+	\item Specificity is the probability of a negative test result, conditioned on the individual truly being negative.
 \end{itemize}
 
-Suppose we have a test designed to identify the presence of a pathogen in patient blood samples. The sensitivity of the test is 80\% and the specificity is 99\%.  
+Suppose we have a test designed to identify the presence of a pathogen in patient blood samples. The sensitivity of the test is 80\% and the specificity is 99\%.
 
 \begin{questions}
-    \question Suppose that 10\% of the population is infected with the pathogen.
-    \begin{parts}
-        \part What is the probability that a randomly selected patient will be tested positive?
-        \vspace{\stretch{0.3}}
-        \part If a randomly selected patient is tested and the test result is \textbf{positive}, what is the probability that the patient, in fact, has the pathogen?
-        \vspace{\stretch{0.3}}
-        \part If a randomly selected patient is tested and the test result is \textbf{negative}, what is the probability that the patient, in fact, has the pathogen?
-        \vspace{\stretch{0.3}}
-    \end{parts}
-    \question Suppose now that 0.1\% of the population is infected with the pathogen. Does the probabilty above change? If so, how?
+	\question Suppose that 10\% of the population is infected with the pathogen.
+	\begin{parts}
+		\part What is the probability that a randomly selected patient will be tested positive?
+		\vspace{\stretch{0.3}}
+		\part If a randomly selected patient is tested and the test result is \textbf{positive}, what is the probability that the patient, in fact, has the pathogen?
+		\vspace{\stretch{0.3}}
+		\part If a randomly selected patient is tested and the test result is \textbf{negative}, what is the probability that the patient, in fact, has the pathogen?
+		\vspace{\stretch{0.3}}
+	\end{parts}
+	\question Suppose now that 0.1\% of the population is infected with the pathogen. Does the probabilty above change? If so, how?
 \end{questions}
 
-\myparagraph{Monty Hall puzzle} The Monty Hall problem is a (in)famous probability puzzle, loosely based on the American television game show \textit{Let's Make a Deal} and named after its original host, \textit{Monty Hall}.
+\subsection{DefrivingBinomial Distribution}
+\tikzstyle{level 1}=[level distance=10mm, sibling distance=60mm]
+\tikzstyle{level 2}=[level distance=10mm, sibling distance=30mm]
+\tikzstyle{level 3}=[level distance=10mm, sibling distance=15mm]
+\tikzstyle{level 4}=[level distance=10mm]
+\begin{center}
+	\begin{tikzpicture}[grow=down,->,>=angle 60]
+		\node {Start}
+		child {node {H}
+				child {node{HH}
+						child {node{HHH}
+								child[-] {node{3}}
+							}
+						child {node {HHT}
+								child[-] {node{2}}
+							}
+					}
+				child {node{HT}
+						child {node{HTH}
+								child[-] {node{2}}
+							}
+						child {node {HTT}
+								child[-] {node{1}}
+							}
+					}
+				edge from parent
+				node[above] {$p$}
+			}
+		child {node {T}
+				child {node{TH}
+						child {node{THH}
+								child[-] {node{2}}
+							}
+						child {node {THT}
+								child[-] {node{1}}
+							}
+					}
+				child {node {TT}
+						child {node{TTH}
+								child[-] {node{1}}
+							}
+						child {node {TTT}
+								child[-] {node{0}}
+							}
+					}
+				edge from parent
+				node[above] {$1-p$}
+			};
+		\node at (-80mm,-40mm) { Number of heads (X)};
+	\end{tikzpicture}
+\end{center}
 
-Suppose you're on a game show, and you're given the choice of three doors:
-\begin{itemize}
-    \item Behind one door is a car; behind the others, goats.
-    \item The player pick a door. Then, the host Monty Hall, who knows what's behind the doors, will open one of the doors that has not been chosen, thus revealing a goat (he obviously won't open the car door).
-    \item He then says to you, "Do you want to switch to the other door?"
-\end{itemize}
-\begin{questions}
-    \question{What is the probability of winning the car if you stick with original choice?}
-    \vspace{\stretch{0.3}}
-    \question{What is the probability of winning the car if you switch?}
-    \vspace{\stretch{0.3}}
-\end{questions}
-
-
-\myparagraph{The Two Children puzzle} Original problem is as follows
-\begin{itemize}
-    \item Mr. Jones has two children.  
-    \item What is the probability that both children are girls?
-    \item Now, if at least one of them is a boy. What is the probability that both children are boys?
-\end{itemize}
 
 \homework Simulate Monty Hall puzzle and answer questions in \\ \verb|day01_activity01_montyhall.ipynb|.
 
-\vspace{\stretch{0.1}}
+\vspace{5em}
 
 \homework Following the instructions in \verb|day01_activity02_twoChildren.ipynb|, complete a code for Two-Children puzzle simulation and answer questions
-
-
 \end{document}

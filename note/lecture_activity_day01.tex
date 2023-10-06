@@ -1,0 +1,181 @@
+\documentclass[a4paper,11pt]{exam}
+
+\usepackage[T1]{fontenc}
+\usepackage[top=2cm, bottom=2cm, left=3cm, right=3cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{bm} % bold greek
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{forloop}
+\usepackage{amsbsy}
+\usepackage{tikz}
+\usetikzlibrary{trees,arrows}
+%\usepackage[framed,numbered]{matlab-prettifier}
+%\usepackage{filecontents}
+\usepackage[numbers,sort&compress,comma]{natbib}
+
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.mps,.eps,.ps}
+\graphicspath{{figs/}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\newcommand*{\clapp}[1]{\hbox to 0pt{\hss#1\hss}}
+\newcommand*{\mat}[1]{\boldsymbol{\mathrm{#1}}}
+\newcommand*{\subdims}[3]{\clapp{\raisebox{#1}[0pt][0pt]{$\scriptstyle(#2 \times #3)$}}}
+\fboxrule=1pt
+
+\newcommand{\defvec}[1]{\expandafter\newcommand\csname v#1\endcsname{{\mathbf{#1}}}}
+\newcommand{\defrv}[1]{\expandafter\newcommand\csname rv#1\endcsname{{\mathbf{#1}}}}
+\newcounter{ct}
+\forLoop{1}{26}{ct}{
+	\edef\letter{\alph{ct}}
+	\expandafter\defvec\letter
+}
+% distinguish random vector
+\forLoop{1}{26}{ct}{
+	\edef\letter{\Alph{ct}}
+	\expandafter\defrv\letter
+}
+\forLoop{1}{26}{ct}{
+	\edef\letter{\alph{ct}}
+	\expandafter\defrv\letter
+}
+\newcommand{\fundamentalSolution}{\boldsymbol{\Phi}}
+\newcommand{\tvv}[1]{\mathbf{\tilde{#1}}} % tilde vectors
+\newcommand{\hvv}[1]{\mathbf{\hat{#1}}} % hat vectors
+
+\newcommand{\braket}[2]{\ensuremath{\langle#1\mid#2\rangle}}
+\newcommand{\bra}[1]{\ensuremath{\langle#1|}}
+\newcommand{\ket}[1]{\ensuremath{|#1\rangle}}
+\newcommand{\horzbar}{\rule[.5ex]{1.5em}{0.4pt}}
+
+\newcommand{\inv}{^{-1}}
+\newcommand{\trp}{{^\top}} % transpose
+\newcommand{\ctrp}{{^\dagger}} % transpose
+\newcommand{\tp}[1]{\ensuremath{{#1}^\top}} % transpose
+\newcommand{\dm}[1]{\ensuremath{\mathrm{d}{#1}}} % dx dy dz dmu
+\newcommand{\RN}[2]{\frac{\dm{#1}}{\dm{#2}}} % (Radon-Nikodym) derivative
+\newcommand{\PD}[2]{\frac{\partial #1}{\partial #2}} % partial derivative
+\newcommand{\norm}[1]{\ensuremath{\Vert{#1}\Vert}}
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\field}[1]{\ensuremath{\mathbb{#1}}}
+\newcommand{\Kfield}{\field{K}}
+\newcommand{\reals}{\field{R}}
+\newcommand{\complex}{\field{C}}
+\newcommand{\integers}{\field{Z}}
+\newcommand{\naturalNumbers}{\field{N}}
+
+\DeclareMathOperator*{\E}{\mathbb{E}} % expectation
+\DeclareMathOperator*{\var}{var}
+\DeclareMathOperator*{\cov}{cov}
+\DeclareMathOperator*{\diag}{diag}
+\newcommand{\system}[2]{\mathcal{#1}\left[ #2 \right]}
+\DeclareMathOperator*{\tr}{tr} % trace
+\newcommand{\indicator}[1]{\mathbf{1}_{#1}} % indicator function
+\newcommand{\onehalf}{\frac{1}{2}}
+
+\newcommand{\iid}{{\it i.i.d.}\xspace}
+\newcommand{\iidsample}{\stackrel{iid}{\sim}}
+\newcommand{\normalDist}{\mathcal{N}}
+\newcounter{homework}
+\newcommand{\homework}{\stepcounter{homework}\textcolor{violet}{\textbf{Homework \thehomework:}~}}
+\newcommand{\funfact}{\textbf{Fun Fact:}~}
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
+
+
+\pagestyle{headandfoot}
+\runningheadrule
+\runningheader{INDP 2023}{Statistics and Data Analysis for Biological Sciences}{Il Memming Park}
+
+\title{Day 1 - The goat is more likely to be behind the other door}
+\author{Il Memming Park, Hyungju Jeon}
+
+\begin{document}
+\maketitle
+\begin{tcolorbox}[colback=black!1!,title=Learning Objective 1]
+	Apply basic rules of probability. Determine when random variables are independent or dependent. Interpret distribution plots.
+\end{tcolorbox}
+
+\subsection{Conditional Probability}
+
+\myparagraph{The problem of false positives} No diagnostic test is perfect in the real world.
+For example, in a flow cytometry test, we may have issues with unspecific binding and specific cross-reactivity with off targets
+resulting in false positives, as well as lack of reactivity with the stated target antigen resulting in false negatives.
+\\\\
+Mathematically, these can be described using \textbf{sensitivity} and \textbf{specificity}.
+\begin{itemize}
+	\item Sensitivity is the probability of a positive test result, conditioned on the individual truly being positive.
+	\item Specificity is the probability of a negative test result, conditioned on the individual truly being negative.
+\end{itemize}
+
+Suppose we have a test designed to identify the presence of a pathogen in patient blood samples. The sensitivity of the test is 80\% and the specificity is 99\%.
+
+\begin{questions}
+	\question Suppose that 10\% of the population is infected with the pathogen.
+	\begin{parts}
+		\part What is the probability that a randomly selected patient will be tested positive?
+		\vspace{\stretch{0.3}}
+		\part If a randomly selected patient is tested and the test result is \textbf{positive}, what is the probability that the patient truly has the pathogen?
+		\vspace{\stretch{0.3}}
+		\part If a randomly selected patient is tested and the test result is \textbf{negative}, what is the probability that the patient, in fact, has the pathogen?
+		\vspace{\stretch{0.3}}
+	\end{parts}
+	\question Suppose now that 0.1\% of the population is infected with the pathogen. Does the probabilty above change? If so, how?
+\end{questions}
+
+\myparagraph{Monty Hall puzzle} The Monty Hall problem is a (in)famous probability puzzle, loosely based on the American television game show \textit{Let's Make a Deal} and named after its original host, \textit{Monty Hall}.
+\\\\
+Suppose you're on a game show, and you're given the choice of three doors:
+\begin{tcolorbox}[colback=white]
+	\begin{itemize}
+		\item Behind one door is a car; behind the others, goats.
+		\item The player pick a door. Then, the host Monty Hall, who knows what's behind the doors, will open one of the doors that has not been chosen, thus revealing a goat (he obviously won't open the car door).
+		\item He then says to you, "Do you want to switch to the other door?"
+	\end{itemize}
+\end{tcolorbox}
+\begin{questions}
+	\question{What is the probability of winning the car if you stick with original choice?}
+	\vspace{\stretch{0.3}}
+	\question{What is the probability of winning the car if you switch?}
+	\vspace{\stretch{0.3}}
+\end{questions}
+
+
+\myparagraph{The Two Children puzzle}
+Let's say you meet four parents - Mrs. Taylor, Mrs. Jones, Mr. Robinson, and Mr. Smith - and they all have exactly two children. Apart from following pieces of information, you are not told anything about them.
+\begin{tcolorbox}[colback=white]
+	\begin{itemize}
+		\item Mrs. Taylor : At least one is a boy.
+		\item Mrs. Jones : The elder one is a boy.
+		\item Mr. Robinson :  At least one is a boy born on a Monday.
+		\item Mr. Smith : One of them is a boy, Oscar, and he was born on a Tuesday.
+	\end{itemize}
+\end{tcolorbox}
+
+For the simplicity, following assumptions are made:
+
+\begin{itemize}
+	\item Each child is either male or female.
+	\item Each child has the same chance of being male as of being female.
+	\item The sex of each child is independent of the sex of the other.
+\end{itemize}
+
+\begin{questions}
+	\question What is the probability that both children are boys in each of the family?
+	\vspace{\stretch{0.3}}
+\end{questions}
+\newpage
+\homework Simulate Monty Hall puzzle and answer questions in \\ \verb|day01_activity01_montyhall.ipynb|.
+
+\vspace{5em}
+
+\homework Following the instructions in \verb|day01_activity02_twoChildren.ipynb|, complete a code for Two-Children puzzle simulation and answer questions
+
+
+
+\end{document}

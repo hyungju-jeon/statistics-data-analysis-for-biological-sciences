@@ -9,7 +9,7 @@ VER=$(git describe --tags --dirty)
 echo $VER
 
 # Loop through files matching the format lecture**_note.tex
-for FILE in lecture[0-9][0-9]_note.tex; do
+for FILE in lecture_activity_day[0-9][0-9].tex; do
     TARGET="${FILE%.tex}"  # Remove the .tex extension
     echo "Compiling $TARGET"
     latexmk -pdf $TARGET
