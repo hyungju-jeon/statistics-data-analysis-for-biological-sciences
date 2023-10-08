@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1696262830 "/Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.tex" "/Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.pdf" "lecture_activity_day02" 1696262830
-  "/Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.aux" 1696262830 2178 024703aa8568dbbe92ec2d61ba5583fc ""
-  "/Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.tex" 1696262829 6800 791e6922254e88717bb0bed6f3968c6c ""
+["pdflatex"] 1696772657 "/Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.tex" "/Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.pdf" "lecture_activity_day02" 1696772657
+  "/Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.aux" 1696772657 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.tex" 1696772656 6803 008a649665b2c3fa08a40f08e5720022 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/jknappen/ec/ecbx1095.tfm" 1136768653 3584 21b378cca2e40816b0e6d74a4dc98f04 ""
@@ -174,13 +174,13 @@
   "/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1557342064 3277517 23507ed665b4dd9046f0f2a94bbef2be ""
   "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1575813038 4259636 5b779707b82c6c6a39409f5fc16d8a3c ""
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
-  "lecture_activity_day02.aux" 1696262830 2178 024703aa8568dbbe92ec2d61ba5583fc "pdflatex"
-  "lecture_activity_day02.out" 1696262830 217 f6a75df57b2295a700a2af4aa9c88caf "pdflatex"
-  "lecture_activity_day02.tex" 1696262829 6800 791e6922254e88717bb0bed6f3968c6c ""
+  "lecture_activity_day02.aux" 0 -1 0 "pdflatex"
+  "lecture_activity_day02.out" 0 -1 0 "pdflatex"
+  "lecture_activity_day02.tex" 1696772656 6803 008a649665b2c3fa08a40f08e5720022 ""
   (generated)
-  "lecture_activity_day02.aux"
   "lecture_activity_day02.log"
-  "/Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.pdf"
-  "lecture_activity_day02.out"
-  "/Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.log"
+  "lecture_activity_day02.aux"
   "lecture_activity_day02.pdf"
+  "/Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.pdf"
+  "/Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.log"
+  "lecture_activity_day02.out"

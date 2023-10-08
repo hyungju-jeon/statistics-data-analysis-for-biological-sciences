@@ -199,14 +199,8 @@ INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 INPUT /usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 INPUT /usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
-INPUT /Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.out
-INPUT /Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.out
-INPUT /Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.out
-INPUT /Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.out
-OUTPUT /Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.pdf
-INPUT /Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.out
-INPUT /Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.out
 OUTPUT /Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.out
+OUTPUT /Users/hyungju/Desktop/hyungju/Project/02_Champalimaud/INDP2023/note/lecture_activity_day02.pdf
 INPUT /usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
